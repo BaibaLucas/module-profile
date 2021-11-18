@@ -1,0 +1,35 @@
+.signup{
+  height: 100vh;
+  &_container{
+    height: 100%;
+    &_title{
+      font-size: 2rem;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin: 0.5rem;
+    }
+    &_form{
+      background-color: lightseagreen;
+      display: flex;
+      flex-direction: column;
+      margin: 0.5rem;
+      text-align: center;
+      align-items: center;
+      &_label{
+        font-weight: bold;
+        font-size: 1.2rem;
+        margin: 0.5rem;
+      }
+      &_input{
+        text-align: center;
+        padding: 0.5rem;
+        width: 80%;
+      }
+      &_button{
+        margin-top: 0.5rem;
+        padding: 1rem;
+      }
+    }
+  }
+}

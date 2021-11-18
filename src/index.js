@@ -1,17 +1,28 @@
+// = Package imports
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider as StoreProvider } from 'react-redux';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+// == Local imports
+// styles
+import './styles/reset.scss';
+import './styles/index.scss';
+// components
+import App from './components/App';
+// store
+import store from './store';
+
+const rootReactElement = (
+  <BrowserRouter>
+    <StoreProvider store ={store}>
+      <App />
+    </StoreProvider>
+  </BrowserRouter>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const target = document.getElementById('root');
+
+render(rootReactElement, target);
+
+
