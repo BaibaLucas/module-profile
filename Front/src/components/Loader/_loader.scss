@@ -1,0 +1,42 @@
+.loader {
+  width: 100%;
+  height: 12vh;
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__bounce {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: purple;
+    animation: bounce 1.5s infinite ease-in-out;
+  }
+
+  &__msg {
+    color: purple;
+    font-size: 1.5rem;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+    width: 3rem;
+    height: 3rem;
+  }
+
+  66% {
+    transform: translateY(-30px);
+    width: 3.4rem;
+    height: 2.5rem;
+  }
+
+  100% {
+    transform: translateY(0);
+    width: 3rem;
+    height: 3rem;
+  }
+}
