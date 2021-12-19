@@ -53,9 +53,6 @@
           flex-direction: column;
           justify-content: space-between;
           width: 100%;
-          border: solid 3px black;
-          
-          
           &_box{
             text-align: start;
             display: flex;
@@ -87,12 +84,10 @@
             }
           }
           &_form{
-            border: solid 3px red;
             margin-top: 1rem;
             display: flex;
             flex-direction: column;
             &_label{
-              border: solid 3px red;
               margin: 1rem;
               color: $color2;
               font-weight: bold;
@@ -102,25 +97,63 @@
               padding: 0.5rem 0.3rem;
             }
           }
+          &_button{
+            background-color: $color2;
+            border-radius: 10px;
+            color: $color;
+            border: none;
+            padding: 0.4rem 1rem;
+            margin: 0.3rem;
+          }
         }
         &_email{
           padding: 1rem;
           display: flex;
+          flex-direction: column;
           justify-content: space-between;
           width: 100%;
-          
           &_box{
             text-align: start;
-            &_desc{
-              margin: 0.3rem 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            &_left{
+              &_desc{
+                margin: 0.3rem 0;
+                color: $color2;
+                font-weight: bold;
+              }
+              &_name{
+                color: $color;
+                font-size: 1.2rem;
+                font-weight: bold;
+                letter-spacing: 0.05rem;
+              }
+            }
+            &_right{
+              display: flex;
+              align-items: end;
+              &_button{
+                background-color: $color2;
+                border-radius: 10px;
+                color: $color;
+                border: none;
+                padding: 0.4rem 1rem;
+              }
+            }
+          }
+          &_form{
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            &_label{
+              margin: 1rem;
               color: $color2;
               font-weight: bold;
             }
-            &_name{
-              color: $color;
-              font-size: 1.2rem;
-              font-weight: bold;
-              letter-spacing: 0.05rem;
+            &_input{
+              margin-bottom: 0.5rem;
+              padding: 0.5rem 0.3rem;
             }
           }
           &_button{
@@ -128,29 +161,58 @@
             border-radius: 10px;
             color: $color;
             border: none;
-            display: inline-block;
-            align-self: flex-end;
             padding: 0.4rem 1rem;
+            margin: 0.3rem;
           }
         }
         &_password{
           padding: 1rem;
           display: flex;
+          flex-direction: column;
           justify-content: space-between;
           width: 100%;
-          
           &_box{
             text-align: start;
-            &_desc{
-              margin: 0.3rem 0;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            &_left{
+              &_desc{
+                margin: 0.3rem 0;
+                color: $color2;
+                font-weight: bold;
+              }
+              &_name{
+                color: $color;
+                font-size: 1.2rem;
+                font-weight: bold;
+                letter-spacing: 0.05rem;
+              }
+            }
+            &_right{
+              display: flex;
+              align-items: end;
+              &_button{
+                background-color: $color2;
+                border-radius: 10px;
+                color: $color;
+                border: none;
+                padding: 0.4rem 1rem;
+              }
+            }
+          }
+          &_form{
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            &_label{
+              margin: 1rem;
               color: $color2;
               font-weight: bold;
             }
-            &_name{
-              color: $color;
-              font-size: 1.2rem;
-              font-weight: bold;
-              letter-spacing: 0.05rem;
+            &_input{
+              margin-bottom: 0.5rem;
+              padding: 0.5rem 0.3rem;
             }
           }
           &_button{
@@ -158,9 +220,8 @@
             border-radius: 10px;
             color: $color;
             border: none;
-            display: inline-block;
-            align-self: flex-end;
             padding: 0.4rem 1rem;
+            margin: 0.3rem;
           }
         }
         &_uploadimg{

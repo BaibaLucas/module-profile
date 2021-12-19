@@ -45,36 +45,6 @@ const onSubmit = async (event) => {
           MODIFIER PROFIL
         </div>
         <form className='editprofil_container_form' encType='multipart/form-data' onSubmit={onSubmit}>
-        <label>Username</label>
-        <input 
-        value={username}
-        onChange={onChange}
-        className="editprofil_container_form_input"
-        type="text"
-        name="username"
-        id="username"
-        placeholder="username"
-        />
-        <label>Email</label>
-        <input 
-        value={email}
-        onChange={onChange}
-        className="editprofil_container_form_input"
-        type="email"
-        name="email"
-        id="email"
-        placeholder="email"
-        />
-        <label>Password</label>
-        <input 
-        value={password}
-        onChange={onChange}
-        className="editprofil_container_form_input"
-        type="password"
-        name="password"
-        id="password"
-        placeholder="min 8 caractères (a, A, 2, *)"
-        />
         <label className='editprofil_container_form_label'>Upload Profile Photo</label>
           <input
           id='upload_photo'

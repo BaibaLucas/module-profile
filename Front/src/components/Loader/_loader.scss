@@ -11,12 +11,12 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: purple;
+    background-color: $color3;
     animation: bounce 1.5s infinite ease-in-out;
   }
 
   &__msg {
-    color: purple;
+    color: $color3;
     font-size: 1.5rem;
   }
 }
