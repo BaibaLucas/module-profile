@@ -4,17 +4,12 @@ import { Navigate, NavLink } from 'react-router-dom';
 
 // Local imports
 import defaultPic from '../../assets/images/defaultPic.jpeg';
+import { MdAddPhotoAlternate } from 'react-icons/md';
 
 
 // Components
 
-const Profil = ({ username, email, imgprofil, isLogged, changeSuccess, success, password }) => {
-
-  // useEffect(() => {
-  //   console.log("Load members Data");
-  //   changeLoader();
-  // // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+const Profil = ({ username, email, imgprofil, isLogged, changeSuccess, password }) => {
 
 useEffect(() => {
   // changeLoader();
@@ -66,9 +61,14 @@ const userImg = () => {
         <div className='profil_container_card'>
         {/* PICTURE + NAME  */}
         <div className='profil_container_card_header'>
+        <NavLink to ='/account/update' > 
           <div className='profil_container_card_header_image'>
+            <div className='profil_container_card_header_image_icon'>
+            <MdAddPhotoAlternate size={40} color={'#EA92DD'}/>
+            </div>
             <img src={userImg()} alt='avatar' />
           </div>
+        </NavLink>
           <div className='profil_container_card_header_name'>
             {username}
           </div>
@@ -203,12 +203,6 @@ const userImg = () => {
             </form>
             </>
           )}
-          </div>
-          {/* uploadimg */}
-          <div className='profil_container_card_content_uploadimg'>
-            <button className='profil_container_card_content_uploadimg_btn'>
-              <NavLink to ='/account/update' > Update profile picture </NavLink>
-            </button>
           </div>
         </div>
         </div> 

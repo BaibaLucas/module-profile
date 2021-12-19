@@ -3,14 +3,18 @@ import React, { useState } from 'react';
 import { Navigate, Redirect, useNavigate, Link } from 'react-router-dom';
 import getCanvasImage from '../../utils';
 import { dataURLtoFile } from '../../utils';
+import defaultPic from '../../assets/images/defaultPic.jpeg';
+
+
 
 import Loader from '../Loader';
 
-const Editprofil = ({ handleSubmit, isLoaded, success, username, email, password, handleChange }) => {
+const Editprofil = ({ handleSubmit, isLoaded, success, handleChange, imgprofil }) => {
 
   const [image, setImage] = useState(null);
+  const [avatar, setAvatar] = useState(null);
   
-  const onSelectFile = (event) => {
+  const onSelectFile = async (event) => {
     if (event.target.files && event.target.files.length > 0) {
 			const reader = new FileReader();
 			reader.readAsDataURL(event.target.files[0]);
@@ -18,6 +22,7 @@ const Editprofil = ({ handleSubmit, isLoaded, success, username, email, password
 				setImage(reader.result);
 			});
 		}
+    setAvatar(image);
     console.log('IMAGE --->', image);
   };
 
@@ -30,6 +35,7 @@ const onSubmit = async (event) => {
   const canvas = await getCanvasImage(image);
   const canvasDataUrl = canvas.toDataURL('image/jpeg');
   const convertedUrlToFile = dataURLtoFile(canvasDataUrl, 'profil-picture.jpeg');
+  setAvatar(convertedUrlToFile);
   handleSubmit(convertedUrlToFile);
 }
 
@@ -45,6 +51,12 @@ const onSubmit = async (event) => {
           MODIFIER PROFIL
         </div>
         <form className='editprofil_container_form' encType='multipart/form-data' onSubmit={onSubmit}>
+        {avatar && (
+          <div className='profil_container_card_header_image'>
+          
+            <img src={avatar} alt='avatar' />
+          </div>
+        )}
         <label className='editprofil_container_form_label'>Upload Profile Photo</label>
           <input
           id='upload_photo'
@@ -65,7 +77,7 @@ const onSubmit = async (event) => {
             Img update successfully
           </div>
           <button className='editprofil_container_successfully_button'>
-            <Link to ='/profil'>Retour au profil</Link>
+            <Link to ='/account'>Retour au profil</Link>
           </button>
         </div>
         </>

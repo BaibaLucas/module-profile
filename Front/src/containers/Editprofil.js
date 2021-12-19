@@ -8,6 +8,7 @@ import Editprofil from '../components/Editprofil';
 const mapStateToProps = (state) => ({
   isLoaded: state.auth.isLoaded,
   success: state.auth.success,
+  imgprofil: state.auth.imgprofil,
 });
 
 const mapDispatchToProps = (dispatch) => ({
