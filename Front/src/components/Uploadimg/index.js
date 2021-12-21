@@ -9,7 +9,7 @@ import defaultPic from '../../assets/images/defaultPic.jpeg';
 
 import Loader from '../Loader';
 
-const Editprofil = ({ handleSubmit, isLoaded, success, handleChange, imgprofil }) => {
+const Uploadimg = ({ handleSubmit, isLoaded, success, handleChange, imgprofil }) => {
 
   const [image, setImage] = useState(null);
   const [avatar, setAvatar] = useState(null);
@@ -35,48 +35,47 @@ const onSubmit = async (event) => {
   const canvas = await getCanvasImage(image);
   const canvasDataUrl = canvas.toDataURL('image/jpeg');
   const convertedUrlToFile = dataURLtoFile(canvasDataUrl, 'profil-picture.jpeg');
-  setAvatar(convertedUrlToFile);
+  setAvatar(canvasDataUrl);
   handleSubmit(convertedUrlToFile);
 }
 
 
   return(
-    <div className='editprofil'>
+    <div className='uploadimg'>
 
         {!isLoaded && (
           <Loader />
         )}
-      <div className='editprofil_container'>
-        <div className='editprofil_container_title'>
+      <div className='uploadimg_container'>
+        <div className='uploadimg_container_title'>
           MODIFIER PROFIL
         </div>
-        <form className='editprofil_container_form' encType='multipart/form-data' onSubmit={onSubmit}>
+        <form className='uploadimg_container_form' encType='multipart/form-data' onSubmit={onSubmit}>
         {avatar && (
-          <div className='profil_container_card_header_image'>
-          
+          <div className='uploadimg_container_form_image'>
             <img src={avatar} alt='avatar' />
           </div>
         )}
-        <label className='editprofil_container_form_label'>Upload Profile Photo</label>
+        <label className='uploadimg_container_form_label'>Upload Profile Photo</label>
           <input
           id='upload_photo'
           onChange={onSelectFile}
-          className='editprofil_container_form_input'
+          className='uploadimg_container_form_input'
           type='file'
           name='imgprof'
           accept="image/*"
           />
-          <button className='editprofil_container_form_button' type='submit'>
+          <button className='uploadimg_container_form_button' type='submit'>
             Valider
           </button>
         </form>
         {success && (
         <>
-        <div className='editprofil_container_successfully'>
-          <div className='editprofil_container_successfully_msg'>
+        <div className='uploadimg_container_successfully'>
+          <div className='uploadimg_container_successfully_msg'>
             Img update successfully
           </div>
-          <button className='editprofil_container_successfully_button'>
+          <button className='uploadimg_container_successfully_button'>
             <Link to ='/account'>Retour au profil</Link>
           </button>
         </div>
@@ -87,4 +86,4 @@ const onSubmit = async (event) => {
   )
 };
 
-export default Editprofil;
+export default Uploadimg;

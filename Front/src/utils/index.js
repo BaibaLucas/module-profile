@@ -14,27 +14,6 @@ export default async function getCanvasImage(imageSrc) {
   const image = await createImage(imageSrc);
   const canvas = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
-	// get the scale
-	// const scale = Math.min(canvas.width / image.width, canvas.height / image.height);
-	// get the top left position of the image
-	// const x = (canvas.width / 2) - (image.width / 2) * scale;
-	// const y = (canvas.height / 2) - (image.height / 2) * scale;
-	// ctx.drawImage(
-	// 	image,
-	// 	x,
-	// 	y,
-	// 	image.width * scale,
-	// 	image.height * scale,
-	// );
-	// ctx.drawImage(
-	// 	image,
-	// 	300,
-	// 	0,
-	// 	200,
-	// 	true
-	// 	);
-  // As Base64 string
-	// return canvas.toDataURL("image/jpeg");
 	canvas.width = image.width;
 	canvas.height = image.height;
 	ctx.drawImage(

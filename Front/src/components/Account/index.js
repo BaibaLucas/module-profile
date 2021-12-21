@@ -9,7 +9,7 @@ import { MdAddPhotoAlternate } from 'react-icons/md';
 
 // Components
 
-const Profil = ({ username, email, imgprofil, isLogged, changeSuccess, password }) => {
+const Account = ({ username, email, imgprofil, isLogged, changeSuccess, password }) => {
 
 useEffect(() => {
   // changeLoader();
@@ -49,46 +49,46 @@ const userImg = () => {
 };
 
   return (
-    <div className='profil'>
+    <div className='account'>
       {/* redirect if user is logged */}
       {!isLogged && (
         <Navigate to='/login' />
       )}
-      <div className='profil_container'>
-        <div className='profil_container_title'>
-          MY PROFIL
+      <div className='account_container'>
+        <div className='account_container_title'>
+          MY account
         </div>
-        <div className='profil_container_card'>
+        <div className='account_container_card'>
         {/* PICTURE + NAME  */}
-        <div className='profil_container_card_header'>
+        <div className='account_container_card_header'>
         <NavLink to ='/account/update' > 
-          <div className='profil_container_card_header_image'>
-            <div className='profil_container_card_header_image_icon'>
+          <div className='account_container_card_header_image'>
+            <div className='account_container_card_header_image_icon'>
             <MdAddPhotoAlternate size={40} color={'#EA92DD'}/>
             </div>
             <img src={userImg()} alt='avatar' />
           </div>
         </NavLink>
-          <div className='profil_container_card_header_name'>
+          <div className='account_container_card_header_name'>
             {username}
           </div>
         </div>
         {/* DETAILS */}
-        <div className='profil_container_card_content'>
+        <div className='account_container_card_content'>
         {/* username */}
-          <div className='profil_container_card_content_username'>
-            <div className='profil_container_card_content_username_box'>
-              <div className='profil_container_card_content_username_box_left'>
-              <div className='profil_container_card_content_username_box_left_desc'>
+          <div className='account_container_card_content_username'>
+            <div className='account_container_card_content_username_box'>
+              <div className='account_container_card_content_username_box_left'>
+              <div className='account_container_card_content_username_box_left_desc'>
                 Display name
               </div>
-              <div className='profil_container_card_content_username_box_left_name'>
+              <div className='account_container_card_content_username_box_left_name'>
                 {username}
               </div>
               </div>
-              <div className='profil_container_card_content_username_box_right'>
+              <div className='account_container_card_content_username_box_right'>
               {!openUsername && (
-                <button className='profil_container_card_content_username_box_right_button' onClick={usernameClick}>
+                <button className='account_container_card_content_username_box_right_button' onClick={usernameClick}>
                 Edit
               </button>
               )}
@@ -97,21 +97,20 @@ const userImg = () => {
           {/* username edit */}
           {openUsername && (
             <>
-            <form className='profil_container_card_content_username_form'>
-              <label className='profil_container_card_content_username_form_label' htmlFor="username">Change Username</label>
+            <form className='account_container_card_content_username_form'>
+              <label className='account_container_card_content_username_form_label' htmlFor="username">Change Username</label>
               <input 
                 value={username}
-                // onChange={onChange}
-                className='profil_container_card_content_username_form_input'
+                className='account_container_card_content_username_form_input'
                 type='text'
                 name='username'
                 id='username'
                 placeholder='username'
               />
-              <button className='profil_container_card_content_username_button' onClick={usernameClick}>
+              <button className='account_container_card_content_username_button' onClick={usernameClick}>
                 Save
               </button>
-              <button className='profil_container_card_content_username_button' onClick={usernameClick}>
+              <button className='account_container_card_content_username_button' onClick={usernameClick}>
                 Cancel
               </button>
             </form>
@@ -119,19 +118,19 @@ const userImg = () => {
           )}
           </div>
           {/* email */}
-          <div className='profil_container_card_content_email'>
-            <div className='profil_container_card_content_email_box'>
-              <div className='profil_container_card_content_email_box_left'>
-              <div className='profil_container_card_content_email_box_left_desc'>
+          <div className='account_container_card_content_email'>
+            <div className='account_container_card_content_email_box'>
+              <div className='account_container_card_content_email_box_left'>
+              <div className='account_container_card_content_email_box_left_desc'>
                 Email
               </div>
-              <div className='profil_container_card_content_email_box_left_name'>
+              <div className='account_container_card_content_email_box_left_name'>
                 {email}
               </div>
               </div>
-              <div className='profil_container_card_content_email_box_right'>
+              <div className='account_container_card_content_email_box_right'>
               {!openEmail && (
-                <button className='profil_container_card_content_email_box_right_button' onClick={emailClick}>
+                <button className='account_container_card_content_email_box_right_button' onClick={emailClick}>
                 Edit
               </button>
               )}
@@ -140,21 +139,21 @@ const userImg = () => {
           {/* email edit */}
           {openEmail && (
             <>
-            <form className='profil_container_card_content_email_form'>
-              <label className='profil_container_card_content_email_form_label' htmlFor="email">Change Email</label>
+            <form className='account_container_card_content_email_form'>
+              <label className='account_container_card_content_email_form_label' htmlFor="email">Change Email</label>
               <input 
                 value={email}
                 // onChange={onChange}
-                className='profil_container_card_content_email_form_input'
+                className='account_container_card_content_email_form_input'
                 type='email'
                 name='email'
                 id='email'
                 placeholder='email'
               />
-              <button className='profil_container_card_content_email_button' onClick={emailClick}>
+              <button className='account_container_card_content_email_button' onClick={emailClick}>
                 Save
               </button>
-              <button className='profil_container_card_content_email_button' onClick={emailClick}>
+              <button className='account_container_card_content_email_button' onClick={emailClick}>
                 Cancel
               </button>
             </form>
@@ -162,19 +161,19 @@ const userImg = () => {
           )}
           </div>
           {/* password */}
-          <div className='profil_container_card_content_password'>
-            <div className='profil_container_card_content_password_box'>
-              <div className='profil_container_card_content_password_box_left'>
-              <div className='profil_container_card_content_password_box_left_desc'>
+          <div className='account_container_card_content_password'>
+            <div className='account_container_card_content_password_box'>
+              <div className='account_container_card_content_password_box_left'>
+              <div className='account_container_card_content_password_box_left_desc'>
                 Password
               </div>
-              <div className='profil_container_card_content_password_box_left_name'>
+              <div className='account_container_card_content_password_box_left_name'>
                 **********
               </div>
               </div>
-              <div className='profil_container_card_content_password_box_right'>
+              <div className='account_container_card_content_password_box_right'>
               {!openPassword && (
-                <button className='profil_container_card_content_password_box_right_button' onClick={passwordClick}>
+                <button className='account_container_card_content_password_box_right_button' onClick={passwordClick}>
                 Edit
               </button>
               )}
@@ -183,21 +182,21 @@ const userImg = () => {
           {/* password edit */}
           {openPassword && (
             <>
-            <form className='profil_container_card_content_password_form'>
-              <label className='profil_container_card_content_password_form_label' htmlFor="password">Change Password</label>
+            <form className='account_container_card_content_password_form'>
+              <label className='account_container_card_content_password_form_label' htmlFor="password">Change Password</label>
               <input 
                 value={password}
                 // onChange={onChange}
-                className='profil_container_card_content_password_form_input'
+                className='account_container_card_content_password_form_input'
                 type='password'
                 name='password'
                 id='password'
                 placeholder='password'
               />
-              <button className='profil_container_card_content_password_button' onClick={passwordClick}>
+              <button className='account_container_card_content_password_button' onClick={passwordClick}>
                 Save
               </button>
-              <button className='profil_container_card_content_password_button' onClick={passwordClick}>
+              <button className='account_container_card_content_password_button' onClick={passwordClick}>
                 Cancel
               </button>
             </form>
@@ -211,4 +210,4 @@ const userImg = () => {
   )
 };
 
-export default Profil;
+export default Account;

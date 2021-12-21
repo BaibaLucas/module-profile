@@ -1,4 +1,4 @@
-.editprofil{
+.uploadimg{
   height: calc(100vh - 50px);
   &_container{
     height: 100vh;
@@ -23,6 +23,18 @@
       border: 2px solid $color2;
       padding: 1rem;
       border-radius: 20px;
+      &_image{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        
+        img{
+          height:100px;
+          width: 100px;
+          border-radius: 50%;
+          border: solid 3px $color2;
+        }
+      }
       &_label{
         font-size: 1.5rem;
         font-weight: bold;
@@ -30,6 +42,29 @@
       }
       &_input{
         margin: 1rem;
+        padding: 1rem;
+        &::-webkit-file-upload-button{
+          visibility: hidden;
+          border:solid $color2 3px;
+        }
+        &::before{
+          content: 'Image';
+          display: inline-block;
+          font-size: 1rem;
+          background-color: $color2;
+          border-radius: 10px;
+          color: $color;
+          border: none;
+          outline: none;
+          padding: 1rem;
+          cursor: pointer;
+        }
+        &:hover::before {
+          border-color: black;
+        }
+        &:hover:active::before{
+          background: $color3;
+        }
       }
       &_button{
         background-color: $color2;
@@ -46,16 +81,24 @@
       text-transform: uppercase;
       letter-spacing: 0.1rem;
       &_msg{
+        border: solid 2px $color2;
         margin: 1rem;
+        background-color: $color3;
+        color: $color;
+        border-radius: 10px;
+        padding: 0.5rem;
       }
       &_button{
         background-color: $color2;
         border-radius: 10px;
         color: $color;
         border: none;
-        display: inline-block;
-        align-self: flex-end;
-        padding: 0.4rem 1rem;
+        padding: 0.8rem 1rem;
+        font-size: 1.2rem;
+        a{
+          text-decoration: none;
+          color: white;
+        }
       }
     }
   }

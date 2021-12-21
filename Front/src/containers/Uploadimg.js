@@ -2,9 +2,9 @@
 import { connect } from 'react-redux';
 
 // Local imports
-import Editprofil from '../components/Editprofil';
+import Uploadimg from '../components/Uploadimg';
 
-// STATES that we give to Props (EditProfil)
+// STATES that we give to Props (uploadimg)
 const mapStateToProps = (state) => ({
   isLoaded: state.auth.isLoaded,
   success: state.auth.success,
@@ -20,4 +20,4 @@ const mapDispatchToProps = (dispatch) => ({
 
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Editprofil);
+export default connect(mapStateToProps, mapDispatchToProps)(Uploadimg);

@@ -9,7 +9,7 @@ import Login from '../../containers/Login';
 import Signup from '../../containers/Signup';
 import Header from '../../containers/Header';
 import Account from '../../containers/Account';
-import Editprofil from '../../containers/Editprofil';
+import Uploadimg from '../../containers/Uploadimg';
 
 const App = () => {
 
@@ -22,7 +22,7 @@ const App = () => {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/account' element={<Account />} />
-        <Route path='/account/update' element={<Editprofil />} />
+        <Route path='/account/update' element={<Uploadimg />} />
       </Routes>
     </div>
   );
