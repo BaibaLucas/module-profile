@@ -81,6 +81,12 @@ const reducer = (oldState = initialState, action = {}) => {
         isLoaded: !oldState.isLoaded,
       };
 
+    case 'CHANGE_ERROR':
+      return {
+        ...oldState,
+        loginError: false,
+      };
+
     case 'CHANGE_SUCCESS':
       return {
         ...oldState,

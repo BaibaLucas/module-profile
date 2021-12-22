@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
     // dispatch({ type: 'RESET_MEMBERS'});
     dispatch({ type: 'CHANGE_LOADER'});
     dispatch({ type: 'GET_ALL_MEMBERS'});
+    dispatch({ type: 'CHANGE_ERROR'});
   },
 
   resetMembers: () => {

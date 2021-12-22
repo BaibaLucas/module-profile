@@ -22,7 +22,6 @@ router.patch('/user/username/:id', userController.updateUserUsername);
 router.patch('/user/email/:id', userController.updateUserEmail);
 router.patch('/user/password/:id', userController.updateUserPassword);
 
-
 // Image
 router.post('/upload/:id', imageController.uploadNewImg);
 router.get('/image/:id', imageController.getImg);

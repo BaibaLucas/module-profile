@@ -98,7 +98,7 @@ module.exports = {
       console.log(test);
       if (test) {
         const saltRounds = 10;
-        const hashedPassword = bcrypt.hashSync(userToUpdate.password, saltRounds);
+        const hashedPassword = bcrypt.hashSync(userToUpdate.editpassword, saltRounds);
         const userUpdated = await userDataMapper.updateUserPassword(userId, {
             password: hashedPassword,
             });
