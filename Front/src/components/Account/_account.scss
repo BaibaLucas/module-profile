@@ -80,7 +80,7 @@
             }
             &_right{
               display: flex;
-              align-items: end;
+              align-items: flex-end;
               &_button{
                 background-color: $color2;
                 border-radius: 10px;
@@ -139,7 +139,7 @@
             }
             &_right{
               display: flex;
-              align-items: end;
+              align-items: flex-end;
               &_button{
                 background-color: $color2;
                 border-radius: 10px;
@@ -198,7 +198,7 @@
             }
             &_right{
               display: flex;
-              align-items: end;
+              align-items: flex-end;
               &_button{
                 background-color: $color2;
                 border-radius: 10px;
