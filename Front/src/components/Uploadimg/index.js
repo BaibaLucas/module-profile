@@ -1,9 +1,9 @@
 // Package imports
 import React, { useState } from 'react';
-import { Navigate, Redirect, useNavigate, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import getCanvasImage from '../../utils';
 import { dataURLtoFile } from '../../utils';
-import defaultPic from '../../assets/images/defaultPic.jpeg';
+
 
 
 
@@ -24,10 +24,6 @@ const Uploadimg = ({ handleSubmit, isLoaded, success, handleChange, imgprofil })
 		}
     setAvatar(image);
     console.log('IMAGE --->', image);
-  };
-
-  const onChange = (event) => {
-    handleChange(event.target.value, event.target.name);
   };
 
 const onSubmit = async (event) => {
@@ -57,6 +53,8 @@ const onSubmit = async (event) => {
           </div>
         )}
         <label className='uploadimg_container_form_label'>Upload Profile Photo</label>
+        {!success && (
+          <>
           <input
           id='upload_photo'
           onChange={onSelectFile}
@@ -68,6 +66,8 @@ const onSubmit = async (event) => {
           <button className='uploadimg_container_form_button' type='submit'>
             Valider
           </button>
+          </>
+        )}
         </form>
         {success && (
         <>

@@ -89,6 +89,90 @@ const auth = (store) => (next) => (action) => {
       break;
     };
 
+    case 'EDIT_USER_USERNAME': {
+      const { auth: { editusername, id } } = store.getState();
+
+      const config = {
+        method: 'patch',
+        url: `${apiUrl}/user/username/${id}`,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: {
+          editusername,
+        },
+      };
+
+      axios(config)
+        .then((response) => {
+          if (response.status !== 200) {
+            throw response.error;
+          } else {
+            console.log(response);
+            store.dispatch({ type: 'EDIT_SUCCESSFULLY' });
+          }
+        }).catch((error) => {
+          console.log('Oups !', error);
+        });
+      break;
+    };
+
+    case 'EDIT_USER_EMAIL': {
+      const { auth: { editemail, id } } = store.getState();
+
+      const config = {
+        method: 'patch',
+        url: `${apiUrl}/user/email/${id}`,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: {
+          editemail,
+        },
+      };
+
+      axios(config)
+        .then((response) => {
+          if (response.status !== 200) {
+            throw response.error;
+          } else {
+            console.log(response);
+            store.dispatch({ type: 'EDIT_SUCCESSFULLY' });
+          }
+        }).catch((error) => {
+          console.log('Oups !', error);
+        });
+      break;
+    };
+
+    case 'EDIT_USER_PASSWORD': {
+      const { auth: { editpassword, id } } = store.getState();
+
+      const config = {
+        method: 'patch',
+        url: `${apiUrl}/user/password/${id}`,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        data: {
+          editpassword,
+        },
+      };
+
+      axios(config)
+        .then((response) => {
+          if (response.status !== 200) {
+            throw response.error;
+          } else {
+            console.log(response);
+            store.dispatch({ type: 'EDIT_SUCCESSFULLY' });
+          }
+        }).catch((error) => {
+          console.log('Oups !', error);
+        });
+      break;
+    };
+
     case 'GET_ALL_MEMBERS': {
 			axios.get(`${apiUrl}/member`)
 				.then((response) => {

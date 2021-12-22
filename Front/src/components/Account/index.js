@@ -1,6 +1,6 @@
 // Package imports
 import React, { useEffect, useState } from 'react';
-import { Navigate, NavLink } from 'react-router-dom';
+import { Link, Navigate, NavLink } from 'react-router-dom';
 
 // Local imports
 import defaultPic from '../../assets/images/defaultPic.jpeg';
@@ -9,13 +9,15 @@ import { MdAddPhotoAlternate } from 'react-icons/md';
 
 // Components
 
-const Account = ({ username, email, imgprofil, isLogged, changeSuccess, password }) => {
+const Account = ({ username, email, imgprofil, isLogged, changeSuccess, handleChange, editusername, editemail, editpassword, handleSubmitUsername, handleSubmitEmail, handleSubmitPassword, success }) => {
 
 useEffect(() => {
   // changeLoader();
   changeSuccess();
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
+
+
 
 const [openUsername, setOpenUsername] = useState(false);
 const [openEmail, setOpenEmail] = useState(false);
@@ -38,6 +40,28 @@ const passwordClick = () => {
   setOpenPassword(!openPassword);
   setOpenUsername(false);
   setOpenEmail(false);
+};
+
+const onChange = (event) => {
+  handleChange(event.target.value, event.target.name);
+};
+
+const onSubmitUsername = (event) => {
+  event.preventDefault();
+  setOpenUsername(false);
+  handleSubmitUsername();
+};
+
+const onSubmitPassword = (event) => {
+  event.preventDefault();
+  setOpenPassword(false);
+  handleSubmitPassword();
+};
+
+const onSubmitEmail = (event) => {
+  event.preventDefault();
+  setOpenEmail(false);
+  handleSubmitEmail();
 };
 
 const userImg = () => {
@@ -97,20 +121,21 @@ const userImg = () => {
           {/* username edit */}
           {openUsername && (
             <>
-            <form className='account_container_card_content_username_form'>
+            <form className='account_container_card_content_username_form' onSubmit={onSubmitUsername}>
               <label className='account_container_card_content_username_form_label' htmlFor="username">Change Username</label>
               <input 
-                value={username}
+                value={editusername}
+                onChange={onChange}
                 className='account_container_card_content_username_form_input'
                 type='text'
-                name='username'
-                id='username'
+                name='editusername'
+                id='editusername'
                 placeholder='username'
               />
-              <button className='account_container_card_content_username_button' onClick={usernameClick}>
+              <button className='account_container_card_content_username_button' type='submit'>
                 Save
               </button>
-              <button className='account_container_card_content_username_button' onClick={usernameClick}>
+              <button className='account_container_card_content_username_button' type='reset' onClick={usernameClick}>
                 Cancel
               </button>
             </form>
@@ -139,21 +164,21 @@ const userImg = () => {
           {/* email edit */}
           {openEmail && (
             <>
-            <form className='account_container_card_content_email_form'>
+            <form className='account_container_card_content_email_form' onSubmit={onSubmitEmail}>
               <label className='account_container_card_content_email_form_label' htmlFor="email">Change Email</label>
               <input 
-                value={email}
-                // onChange={onChange}
+                value={editemail}
+                onChange={onChange}
                 className='account_container_card_content_email_form_input'
                 type='email'
-                name='email'
-                id='email'
+                name='editemail'
+                id='editemail'
                 placeholder='email'
               />
-              <button className='account_container_card_content_email_button' onClick={emailClick}>
+              <button className='account_container_card_content_email_button' type='submit'>
                 Save
               </button>
-              <button className='account_container_card_content_email_button' onClick={emailClick}>
+              <button className='account_container_card_content_email_button' type='reset' onClick={emailClick}>
                 Cancel
               </button>
             </form>
@@ -182,21 +207,21 @@ const userImg = () => {
           {/* password edit */}
           {openPassword && (
             <>
-            <form className='account_container_card_content_password_form'>
+            <form className='account_container_card_content_password_form' onSubmit={onSubmitPassword}>
               <label className='account_container_card_content_password_form_label' htmlFor="password">Change Password</label>
               <input 
-                value={password}
-                // onChange={onChange}
+                value={editpassword}
+                onChange={onChange}
                 className='account_container_card_content_password_form_input'
-                type='password'
-                name='password'
-                id='password'
+                type='editpassword'
+                name='editpassword'
+                id='editpassword'
                 placeholder='password'
               />
-              <button className='account_container_card_content_password_button' onClick={passwordClick}>
+              <button className='account_container_card_content_password_button' type='submit'>
                 Save
               </button>
-              <button className='account_container_card_content_password_button' onClick={passwordClick}>
+              <button className='account_container_card_content_password_button' type='reset' onClick={passwordClick}>
                 Cancel
               </button>
             </form>
@@ -204,7 +229,19 @@ const userImg = () => {
           )}
           </div>
         </div>
-        </div> 
+        {success && (
+        <>
+        <div className='uploadimg_container_successfully'>
+          <div className='uploadimg_container_successfully_msg'>
+            Img update successfully
+          </div>
+          <button className='uploadimg_container_successfully_button'>
+            <Link to ='/'>Back Home</Link>
+          </button>
+        </div>
+        </>
+      )}
+        </div>
       </div>
     </div>
   )

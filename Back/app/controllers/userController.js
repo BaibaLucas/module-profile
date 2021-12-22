@@ -48,4 +48,74 @@ module.exports = {
       next(error);
     }
   },
-};
+
+  async updateUserUsername(req, res, next) {
+    try {
+      const userToUpdate = req.body;
+      const userId = req.params.id;
+      console.log('controllers updateUser req.body ---->', req.body);
+      console.log('controllers updateUser req.params.id ---->', userId);
+      const userUpdated = await userDataMapper.updateUserUsername(userId, {
+          username: userToUpdate.editusername,
+          });
+      res.json({
+          message: 'user name updated',
+          data: userUpdated
+      });
+      console.log('user name updated');
+    } catch(error) {
+      next(error);
+    }
+  },
+
+  async updateUserEmail(req, res, next) {
+    try {
+      const userToUpdate = req.body;
+      const userId = req.params.id;
+      console.log('controllers updateUser req.body ---->', req.body);
+      console.log('controllers updateUser req.params.id ---->', userId);
+      const userUpdated = await userDataMapper.updateUserEmail(userId, {
+          email: userToUpdate.editemail
+          });
+      res.json({
+          message: 'user email updated',
+          data: userUpdated
+        });
+      console.log('user email updated');
+    } catch(error) {
+      next(error);
+    }
+  },
+
+  async updateUserPassword(req, res, next) {
+    try {
+      const userToUpdate = req.body;
+      const userId = req.params.id;
+      console.log('controllers updateUser req.body ---->', req.body);
+      console.log('controllers updateUser req.params.id ---->', userId);
+      const regexPassword = /(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*])[\w!@#$%^&*]{8,}/;
+      const test = regexPassword.test(userToUpdate.editpassword);
+      console.log(test);
+      if (test) {
+        const saltRounds = 10;
+        const hashedPassword = bcrypt.hashSync(userToUpdate.password, saltRounds);
+        const userUpdated = await userDataMapper.updateUserPassword(userId, {
+            password: hashedPassword,
+            });
+        res.json({
+            message: 'user password updated',
+            data: userUpdated
+        });
+        console.log('user password updated');
+    } else {
+        // res.json({
+        //     message: 'le mot de passe doit contenir au moins 8 caractères dont 1 majuscule, 1 minuscule, 1chiffre, 1 caractère spécial',
+        //     data: newUser.email
+        // });
+        console.log('userupdated NOT OK');
+    }
+    } catch(error) {
+      next(error);
+    }
+  },
+}; 

@@ -1,5 +1,5 @@
 // Package imports
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 // Local imports
 import defaultPic from '../../assets/images/defaultPic.jpeg';

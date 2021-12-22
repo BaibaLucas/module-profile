@@ -15,6 +15,9 @@ const initialState = {
   memberslist: [],
   isLoaded: false,
   success: false,
+  editusername: '',
+  editemail: '',
+  editpassword: '',
 };
 
 const reducer = (oldState = initialState, action = {}) => {
@@ -83,6 +86,13 @@ const reducer = (oldState = initialState, action = {}) => {
         ...oldState,
         success: false,
       };
+
+    case 'EDIT_SUCCESSFULLY':
+      return {
+        ...oldState,
+        success: true,
+        isLogged: false,
+      }
 
     case 'RESET_MEMBERS':
       return {

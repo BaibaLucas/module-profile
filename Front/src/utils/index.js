@@ -1,6 +1,3 @@
-import { imgUploadSuccess } from "../store/action";
-
-
 const createImage = (url) =>
   new Promise((resolve, reject) => {
     const image = new Image();

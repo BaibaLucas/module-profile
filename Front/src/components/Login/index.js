@@ -52,7 +52,6 @@ const Login = ({ emailValue, passwordValue, handleChange, handleLogin, isLogged,
           onChange={onChange}
         />
         <button className='login_container_form_button' type='submit'>Valider</button>
-
         {/* Show if user do some error at Login */}
         {loginError && (
           <div className='login_container_form_error'> ERROR TRY AGAIN </div>

@@ -20,4 +20,30 @@ module.exports = {
     return result.rows[0]
   },
   
+  async updateUserUsername(userId, userToUpdate) {
+
+    const result = await client.query('UPDATE "user" SET username=$1 WHERE id=$2 RETURNING *', [userToUpdate.username, userId]);
+    if (result.rowCount == 0) {
+        return null;
+    }
+    return result.rows;
+  },
+
+  async updateUserEmail(userId, userToUpdate) {
+
+    const result = await client.query('UPDATE "user" SET email=$1 WHERE id=$2 RETURNING *', [userToUpdate.email, userId]);
+    if (result.rowCount == 0) {
+        return null;
+    }
+    return result.rows;
+  },
+
+  async updateUserPassword(userId, userToUpdate) {
+
+    const result = await client.query('UPDATE "user" SET username=$1 WHERE id=$2 RETURNING *', [userToUpdate.password, userId]);
+    if (result.rowCount == 0) {
+        return null;
+    }
+    return result.rows;
+  },
 };
