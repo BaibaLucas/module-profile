@@ -5,6 +5,8 @@
 ## DESCRIPTION
 
 ![user-profile](https://github.com/BaibaLucas/module-profile/blob/main/presentation.png "presentation user-profile")
+
+
 User profile collection of settings and information associated with a user, we can create an user, add and modify profile picture, username, email and password.
 Created with React Express and AmazonS3.
 
@@ -12,7 +14,7 @@ Created with React Express and AmazonS3.
 
 * [Create React App](https://create-react-app.dev/)
 * [Sass](https://sass-lang.com/)
-* [Express](https://expressjs.com)
+* [Express](https://expressjs.com)
 * [Node](https://nodejs.org/en/)
 * [AmazonS3](https://aws.amazon.com/fr/s3/?nc2=h_ql_prod_fs_s3)
 * [PostgreSQL](https://www.postgresql.org)
