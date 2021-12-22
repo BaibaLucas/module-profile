@@ -14,16 +14,12 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  
   loadMembersData: () => {
-    // dispatch({ type: 'RESET_MEMBERS'});
     dispatch({ type: 'CHANGE_LOADER'});
     dispatch({ type: 'GET_ALL_MEMBERS'});
     dispatch({ type: 'CHANGE_ERROR'});
   },
-
-  resetMembers: () => {
-    dispatch({ type: 'RESET_MEMBERS'});
-  }
 
 });
 

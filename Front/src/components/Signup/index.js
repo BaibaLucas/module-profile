@@ -2,14 +2,19 @@
 import React, { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 
+// Local imports
 
+// Components
 const Signup = ({ isLogged, username, email, password, imgprof, handleChange, handleSubmit }) => {
+
   const [ redirect, setRedirect] = useState(false);
 
+  // Handle Value
   const onChange = (event) => {
     handleChange(event.target.value, event.target.name);
   };
 
+ // Handle Submit + Redirect state
   const onSubmit = (event) => {
     event.preventDefault();
     handleSubmit();
@@ -18,7 +23,6 @@ const Signup = ({ isLogged, username, email, password, imgprof, handleChange, ha
 
   return (
     <div className='signup'>
-
       {/* redirect when signed up */}
       {redirect && (
         <Navigate to='/login' />

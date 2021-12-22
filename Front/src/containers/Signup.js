@@ -16,6 +16,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+
   handleChange: (value, name) => {
     dispatch(changeAuthField(value, name));
   },
@@ -23,6 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
   handleSubmit: () => {
     dispatch({type: 'USER_SIGNUP'});
   },
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);

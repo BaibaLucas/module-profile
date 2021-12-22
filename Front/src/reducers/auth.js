@@ -98,13 +98,7 @@ const reducer = (oldState = initialState, action = {}) => {
         ...oldState,
         success: true,
         isLogged: false,
-      }
-
-    case 'RESET_MEMBERS':
-      return {
-        ...oldState,
-        memberslist: [],
-      }
+      };
 
     case 'GET_MEMBERS_SUCCESS':
       return {

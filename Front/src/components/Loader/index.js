@@ -1,6 +1,9 @@
 // == Package Imports
 import React from 'react';
 
+// Local imports
+
+// Components
 const Loader = () => (
   <div className="loader">
     <div className="loader__bounce" />

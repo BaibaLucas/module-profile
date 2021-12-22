@@ -3,6 +3,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 // Local imports
+
 // Components
 import Home from '../../containers/Home';
 import Login from '../../containers/Login';
@@ -12,8 +13,6 @@ import Account from '../../containers/Account';
 import Uploadimg from '../../containers/Uploadimg';
 
 const App = () => {
-
-  
   return (
     <div className='App'>
       <Header />

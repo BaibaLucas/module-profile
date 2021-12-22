@@ -1,7 +1,4 @@
-
 const client = require('./client');
-const upload = require('../middleware/upload');
-
 
 module.exports = {
   async uploadNewImg(imgUrl, id) {

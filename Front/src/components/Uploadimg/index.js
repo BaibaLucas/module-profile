@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 import getCanvasImage from '../../utils';
 import { dataURLtoFile } from '../../utils';
 
-
-
-
+// Local imports
 import Loader from '../Loader';
 
-const Uploadimg = ({ handleSubmit, isLoaded, success, handleChange, imgprofil }) => {
+// Components
+const Uploadimg = ({ handleSubmit, isLoaded, success }) => {
 
   const [image, setImage] = useState(null);
   const [avatar, setAvatar] = useState(null);
   
+  // Handle Value file image
   const onSelectFile = async (event) => {
     if (event.target.files && event.target.files.length > 0) {
 			const reader = new FileReader();
@@ -26,19 +26,18 @@ const Uploadimg = ({ handleSubmit, isLoaded, success, handleChange, imgprofil })
     console.log('IMAGE --->', image);
   };
 
-const onSubmit = async (event) => {
-  event.preventDefault();
-  const canvas = await getCanvasImage(image);
-  const canvasDataUrl = canvas.toDataURL('image/jpeg');
-  const convertedUrlToFile = dataURLtoFile(canvasDataUrl, 'profil-picture.jpeg');
-  setAvatar(canvasDataUrl);
-  handleSubmit(convertedUrlToFile);
-}
-
+  // Handle submit image
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const canvas = await getCanvasImage(image);
+    const canvasDataUrl = canvas.toDataURL('image/jpeg');
+    const convertedUrlToFile = dataURLtoFile(canvasDataUrl, 'profil-picture.jpeg');
+    setAvatar(canvasDataUrl);
+    handleSubmit(convertedUrlToFile);
+  }
 
   return(
     <div className='uploadimg'>
-
         {!isLoaded && (
           <Loader />
         )}
@@ -47,6 +46,7 @@ const onSubmit = async (event) => {
           MODIFIER PROFIL
         </div>
         <form className='uploadimg_container_form' encType='multipart/form-data' onSubmit={onSubmit}>
+        {/* display profil picture when user select files */}
         {avatar && (
           <div className='uploadimg_container_form_image'>
             <img src={avatar} alt='avatar' />
@@ -69,6 +69,7 @@ const onSubmit = async (event) => {
           </>
         )}
         </form>
+        {/* Hide form when user upload image successfully */}
         {success && (
         <>
         <div className='uploadimg_container_successfully'>

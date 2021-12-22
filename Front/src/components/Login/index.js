@@ -1,15 +1,18 @@
 // Package imports
 import React from 'react';
 import { Navigate } from 'react-router-dom';
+
 // Local imports
 import Loader from '../Loader';
 
+// Components
 const Login = ({ emailValue, passwordValue, handleChange, handleLogin, isLogged, loginError, isLoaded }) => {
 
+  //Handle value
   const onChange = (event) => {
     handleChange(event.target.value, event.target.name);
   }
-
+  //Handle Submit
   const handleSubmit = (event) => {
     event.preventDefault();
     handleLogin();
@@ -17,17 +20,13 @@ const Login = ({ emailValue, passwordValue, handleChange, handleLogin, isLogged,
 
   return (
     <div className='login'>
-
-
       {!isLoaded && (
           <Loader />
         )}
-
       {/* redirect if user is logged */}
       {isLogged && (
         <Navigate to='/' />
       )}
-      
       <div className='login_container'>
       <h1 className='login_container_title'>Connexion</h1>
       <form className='login_container_form' onSubmit={handleSubmit}>

@@ -1,6 +1,5 @@
 const userDataMapper = require('../dataMappers/userDataMapper');
 const bcrypt = require('bcrypt');
-const imageDataMapper = require('../dataMappers/imageDataMapper');
 
 module.exports = {
 
@@ -25,18 +24,13 @@ module.exports = {
       if (!test) {
         res.status('401').json({data: newUser});
       };
-
       if (test) {
         const hashedPassword = bcrypt.hashSync(newUser.password, saltRounds);
-
         const createdUser = await userDataMapper.createNewUser({
           username: newUser.username,
           email: newUser.email,
           password: hashedPassword,
         });
-        const userId = createdUser.id;
-        // console.log('userController ----> BEFORE DEFAULTPIC');
-        // const defaultPic = await imageDataMapper.defaultPic(userId);
           res.json({
             status: 200,
             message: 'new user created',
@@ -108,10 +102,6 @@ module.exports = {
         });
         console.log('user password updated');
     } else {
-        // res.json({
-        //     message: 'le mot de passe doit contenir au moins 8 caractères dont 1 majuscule, 1 minuscule, 1chiffre, 1 caractère spécial',
-        //     data: newUser.email
-        // });
         console.log('userupdated NOT OK');
     }
     } catch(error) {

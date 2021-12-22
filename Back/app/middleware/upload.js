@@ -1,35 +1,3 @@
-// // Multer MW
-// const multer = require('multer');
-
-
-// const storage = multer.diskStorage({
-//   destination: function (req, file, cb) {
-//     cb(null, 'profilPic');
-//   },
-//   filename: function (req, file, cb) {
-//     // cb(null, Date.now() + '--' + file.originalname);
-//     // cb(null, Date.now() + '--' + req.params.id); /** THIS ONE OK */
-//     cb(null, 'profil--' + req.params.id);
-//     console.log('INSIDE MULTER MW STORAGE');
-//   }
-// });
-
-// const fileFilter = (req, file, cb) => {
-//   if((file.mimetype).includes('jpeg') || (file.mimetype).includes('png') || (file.mimetype).includes('jpg')){
-//     cb(null, true);
-//     console.log('FILTER OK true');
-//   } else {
-//     cb(null, false);
-//     console.log('FILTER NOK false');
-//   }
-//   console.log('INSIDE MULTER MW FILTER');
-// };
-
-// const upload = multer({ storage: storage, fileFilter: fileFilter, limits:{fileSize: 1000000} });
-
-
-// module.exports = upload.single('myImage');
-
 const aws = require('aws-sdk');
 const multer = require('multer');
 const multerS3 = require('multer-s3');

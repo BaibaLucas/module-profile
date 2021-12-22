@@ -6,64 +6,59 @@ import { Link, Navigate, NavLink } from 'react-router-dom';
 import defaultPic from '../../assets/images/defaultPic.jpeg';
 import { MdAddPhotoAlternate } from 'react-icons/md';
 
-
 // Components
-
 const Account = ({ username, email, imgprofil, isLogged, changeSuccess, handleChange, editusername, editemail, editpassword, handleSubmitUsername, handleSubmitEmail, handleSubmitPassword, success }) => {
 
 useEffect(() => {
-  // changeLoader();
   changeSuccess();
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
 
-
-
+/** States for opening form edit */
 const [openUsername, setOpenUsername] = useState(false);
 const [openEmail, setOpenEmail] = useState(false);
 const [openPassword, setOpenPassword] = useState(false);
 
-
+/** () => for opening form edit {refactoring}*/
 const usernameClick = () => {
   setOpenUsername(!openUsername);
   setOpenEmail(false);
   setOpenPassword(false);
 };
-
 const emailClick = () => {
   setOpenEmail(!openEmail);
   setOpenUsername(false);
   setOpenPassword(false);
 };
-
 const passwordClick = () => {
   setOpenPassword(!openPassword);
   setOpenUsername(false);
   setOpenEmail(false);
 };
 
+/** Handle input value */
 const onChange = (event) => {
   handleChange(event.target.value, event.target.name);
 };
 
+/** Handle submit value {refactoring}*/
 const onSubmitUsername = (event) => {
   event.preventDefault();
   setOpenUsername(false);
   handleSubmitUsername();
 };
-
 const onSubmitPassword = (event) => {
   event.preventDefault();
   setOpenPassword(false);
   handleSubmitPassword();
 };
-
 const onSubmitEmail = (event) => {
   event.preventDefault();
   setOpenEmail(false);
   handleSubmitEmail();
 };
 
+/** Return default pics */
 const userImg = () => {
   if (imgprofil === null) {
     return defaultPic
@@ -99,7 +94,7 @@ const userImg = () => {
         </div>
         {/* DETAILS */}
         <div className='account_container_card_content'>
-        {/* username */}
+        {/* USERNAME */}
           <div className='account_container_card_content_username'>
             <div className='account_container_card_content_username_box'>
               <div className='account_container_card_content_username_box_left'>
@@ -118,7 +113,7 @@ const userImg = () => {
               )}
               </div>
             </div>
-          {/* username edit */}
+          {/* USERNAME EDIT */}
           {openUsername && (
             <>
             <form className='account_container_card_content_username_form' onSubmit={onSubmitUsername}>
@@ -142,7 +137,7 @@ const userImg = () => {
             </>
           )}
           </div>
-          {/* email */}
+          {/* EMAIL */}
           <div className='account_container_card_content_email'>
             <div className='account_container_card_content_email_box'>
               <div className='account_container_card_content_email_box_left'>
@@ -161,7 +156,7 @@ const userImg = () => {
               )}
               </div>
             </div>
-          {/* email edit */}
+          {/* EMAIL EDIT */}
           {openEmail && (
             <>
             <form className='account_container_card_content_email_form' onSubmit={onSubmitEmail}>
@@ -185,7 +180,7 @@ const userImg = () => {
             </>
           )}
           </div>
-          {/* password */}
+          {/* PASSWORD */}
           <div className='account_container_card_content_password'>
             <div className='account_container_card_content_password_box'>
               <div className='account_container_card_content_password_box_left'>
@@ -204,7 +199,7 @@ const userImg = () => {
               )}
               </div>
             </div>
-          {/* password edit */}
+          {/* PASSWORD EDIT */}
           {openPassword && (
             <>
             <form className='account_container_card_content_password_form' onSubmit={onSubmitPassword}>
@@ -229,6 +224,7 @@ const userImg = () => {
           )}
           </div>
         </div>
+        {/* if success return a new div with success message and back home */}
         {success && (
         <>
         <div className='uploadimg_container_successfully'>

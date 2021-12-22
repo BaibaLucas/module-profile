@@ -5,13 +5,11 @@ import { NavLink, Link } from 'react-router-dom';
 // Local imports
 
 // Components
-
 const Header = ({ isLogged, handleLogout }) => {
 
   const onClick = (event) => { 
     handleLogout();
   };
-
 
   return (
     <div className='header'>

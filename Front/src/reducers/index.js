@@ -1,3 +1,4 @@
+// Package imports
 import { combineReducers } from 'redux';
 
 // Local imports

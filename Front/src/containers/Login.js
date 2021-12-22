@@ -30,8 +30,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch({ type: 'CHANGE_LOADER'});
     dispatch({ type: 'LOGOUT' });
   },
-
-
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

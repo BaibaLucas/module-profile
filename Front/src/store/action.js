@@ -7,12 +7,6 @@ export const CHANGE_IMG_FIELD = 'CHANGE_IMG_FIELD';
 export const IMG_UPLOAD_SUCCESS = 'IMG_UPLOAD_SUCCESS';
 
 
-
-
-
-
-
-
 // Actions
 // Auth actions
 export const changeAuthField = (value, name) => ({
@@ -26,10 +20,13 @@ export const signupSuccess = (user) => ({
   ...user,
 });
 
+// User
 export const getMembersSuccess = (list) => ({
   type: GET_MEMBERS_SUCCESS,
   list,
 });
+
+// Image
 export const changeImgField = (file) => ({
   type: CHANGE_IMG_FIELD,
   file,

@@ -7,7 +7,6 @@ import rootReducer from '../reducers';
 // MW
 import authMiddleware from '../middlewares/auth';
 
-
 // Store creation
 const store = createStore(
   rootReducer,

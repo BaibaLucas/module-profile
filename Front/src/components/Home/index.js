@@ -6,28 +6,24 @@ import defaultPic from '../../assets/images/defaultPic.jpeg';
 import Loader from '../Loader';
 
 // Components
+const Home = ({ loadMembersData, isLogged, username, members, isLoaded }) => {
 
-const Home = ({ loadMembersData, isLogged, username, members, isLoaded, resetMembers }) => {
-
+  /**  () => clearing cache **/
   const clearCacheData = () => {
     caches.keys().then((names) => {
       names.forEach((name) => {
         caches.delete(name);
       });
     });
-    // alert('Complete Cache Cleared')
   };
 
-
   useEffect(() => {
-    // resetMembers();
     clearCacheData();
-    console.log("Load members Data");
     loadMembersData();
-    console.log(members);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  /** Return default pics */
   const userImg = (img) => {
     if (img === null) {
       return defaultPic
@@ -45,7 +41,6 @@ const Home = ({ loadMembersData, isLogged, username, members, isLoaded, resetMem
         {!isLoaded && (
           <Loader />
         )}
-        
         {isLoaded && (
           <>
           {isLogged && (  
